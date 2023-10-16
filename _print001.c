@@ -2,15 +2,12 @@
 /**
  * _printf - Produces output according to a format
  * @format: A character string containing zero
- * or more directives.
  * Return: The number of characters printed (excluding
- * the null bytes used to end the output to string)
  */
 int _printf(const char *format, ...)
 {
-	int i, count_n = 0;
-	char a;
-	char *string;
+	int count_n = 0;
+	char *string, a;
 	va_list args_list;
 
 	if (format == NULL)
@@ -36,8 +33,11 @@ int _printf(const char *format, ...)
 			{
 				string = va_arg(args_list, char *);
 				while (*string != '\0')
+				{
 					write(1, string, 1);
-				count_n = count_n + _stringlength(string);
+					count_n++;
+					string++;
+				}
 			}
 			else if (*format == '%')
 			{
@@ -45,6 +45,7 @@ int _printf(const char *format, ...)
 				count_n++;
 			}
 		}
+		format++;
 	}
 	va_end(args_list);
 	return (count_n - 1);
