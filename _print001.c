@@ -16,30 +16,30 @@ int _printf(const char *format, ...)
 	if (format == NULL)
 		return (-98);
 	va_start(args_list, format);
-	for (i = 0; format[i] != '\0'; i++)
+	while (*format != '\0')
 	{
-		if (format[i] != '%')
+		if (*format != '%')
 		{
-			write(1, &format[i], 1);
+			write(1, format, 1);
 			count_n++;
 		}
 		else
 		{
-			i++;
-			if (format[i] == 'c')
+			format++;
+			if (*format == 'c')
 			{
 				a = va_arg(args_list, int);
 				write(1, &a, 1);
 				count_n++;
 			}
-			else if (format[i] == 's')
+			else if (*format == 's')
 			{
 				string = va_arg(args_list, char *);
 				while (*string != '\0')
 					write(1, string, 1);
 				count_n = count_n + _stringlength(string);
 			}
-			else if (format[i] == '%')
+			else if (*format == '%')
 			{
 				write(1, "%", 1);
 				count_n++;
