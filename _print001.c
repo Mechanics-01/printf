@@ -35,7 +35,7 @@ int _printf(const char *format, ...)
 			{
 				string = va_arg(args_list, char *);
 				while (*string != '\0')
-					write(1, string, _stringlength(string));
+					write(1, string, 1);
 				count_n = count_n + _stringlength(string);
 			}
 			if (format[i + 1] == '%')
