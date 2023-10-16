@@ -31,14 +31,14 @@ int _printf(const char *format, ...)
 				write(1, &a, 1);
 				count_n++;
 			}
-			if (format[i + 1] == 's')
+			else if (format[i + 1] == 's')
 			{
 				string = va_arg(args_list, char *);
 				while (*string != '\0')
 					write(1, string, 1);
 				count_n = count_n + _stringlength(string);
 			}
-			if (format[i + 1] == '%')
+			else if (format[i + 1] == '%')
 			{
 				write(1, &format[i + 1], 1);
 				count_n++;
