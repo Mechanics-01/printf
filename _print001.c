@@ -25,25 +25,25 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-			if (format[i + 1] == 'c')
+			i++;
+			if (format[i] == 'c')
 			{
 				a = va_arg(args_list, int);
 				write(1, &a, 1);
 				count_n++;
 			}
-			else if (format[i + 1] == 's')
+			else if (format[i] == 's')
 			{
 				string = va_arg(args_list, char *);
 				while (*string != '\0')
 					write(1, string, 1);
 				count_n = count_n + _stringlength(string);
 			}
-			else if (format[i + 1] == '%')
+			else if (format[i] == '%')
 			{
-				write(1, &format[i + 1], 1);
+				write(1, &format[i], 1);
 				count_n++;
 			}
-			i++;
 		}
 	}
 	va_end(args_list);
