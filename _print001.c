@@ -32,12 +32,17 @@ int _printf(const char *format, ...)
 			else if (format[i + 1] == 's')
 			{
 				string = va_arg(args_list, char *);
-				for (; *string != '\0'; string++, count_n++)
+				for (; string != NULL; string++, count_n++)
 				{
 					write(1, string, 1);
 				}
 			}
 			else if (format[i + 1] == '%')
+			{
+				write(1, &format[i + 1], 1);
+				count_n++;
+			}
+			else if (format[i + 1] != ('%' || 'c' || 's'))
 			{
 				write(1, &format[i + 1], 1);
 				count_n++;
