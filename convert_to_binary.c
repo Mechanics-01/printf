@@ -30,7 +30,7 @@ int convert_to_binary(int value_bin)
 	}
 
 	for (j = i - 1; j >= 0; j--)
-		_putchar('0' + box[j]);
+		_putchar(48 + box[j]);
 
 	return (count_b);
 }
