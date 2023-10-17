@@ -54,31 +54,43 @@ int _printf(const char *format, ...)
 			else if (format[i + 1] == 'd' || format[i + 1] == 'i')
 			{
 				number = va_arg(args_list, int);
+				if (number == NULL)
+					return (-1);
 				count_n += convert_to_string(number);
 			}
 			else if (format[i + 1] == 'b')
 			{
 				number = va_arg(args_list, int);
+				if (number == NULL)
+					return (-1);
 				count_n += convert_to_binary(number);
 			}
 			else if (format[i + 1] == 'u')
 			{
 				number = va_arg(args_list, int);
+				if (number == NULL)
+					return (-1);
 				count_n += convert_to_string(number);
 			}
 			else if (format[i + 1] == 'o')
 			{
 				number = va_arg(args_list, int);
+				if (number == NULL)
+					return (-1);
 				count_n += convert_to_octal(number);
 			}
 			else if (format[i + 1] == 'x')
 			{
 				number = va_arg(args_list, int);
+				if (number == NULL)
+					return (-1);
 				count_n += convert_to_hexa(number);
 			}
 			else if (format[i + 1] == 'X')
 			{
 				number = va_arg(args_list, int);
+				if (number == NULL)
+					return (-1);
 				count_n += convert_to_heXa(number);
 			}
 			i++;
