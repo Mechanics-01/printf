@@ -2,7 +2,7 @@
 /**
  * _printf - Produces output according to a format
  * @format: A character string containing zero
- * Return: The number of characters printed (excluding
+ * Return: The number of characters printed
  */
 
 int _printf(const char *format, ...)
@@ -42,6 +42,8 @@ int _printf(const char *format, ...)
 				write(1, &format[i + 1], 1);
 				count_n++;
 			}
+			if (format[i + 1] == '\0')
+				break;
 			i++;
 		}
 	}
