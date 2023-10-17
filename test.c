@@ -15,7 +15,7 @@ int main(void)
 	_printf("%u\n", 1024);
 	_printf("%o\n", 1024);
 	_printf("%X\n", 1024672465);
-	_printf("%x\n", 14672465);
+	_printf("%x\n", 1024);
 	k = _printf("%u\n",102446573);
 	printf("%d\n", k);
 	
