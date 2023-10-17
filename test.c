@@ -12,7 +12,8 @@ int main(void)
 {
 	int k;
 
-	_printf("%u\n", 1024);
+
+	_printf("%c\n", 's');
 	_printf("%o\n", 1024);
 	_printf("%X\n", 1024672465);
 	_printf("%x\n", 1024);
