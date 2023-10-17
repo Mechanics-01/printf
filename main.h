@@ -12,5 +12,6 @@ int convert_to_heXa(int value_bin);
 int convert_to_hexa(int value_bin);
 int convert_to_octal(int value_o);
 int _putchar(char c);
+int format_specifier(va_list args_list, char format);
 
 #endif/*MAIN_H*/
