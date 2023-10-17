@@ -8,7 +8,7 @@
 int _printf(const char *format, ...)
 {
 	int i, count_n = 0;
-	char *string, a;
+	char *string = NULL, a;
 	va_list args_list;
 
 	if (format == NULL)
@@ -42,8 +42,6 @@ int _printf(const char *format, ...)
 				write(1, &format[i + 1], 1);
 				count_n++;
 			}
-			if (format[i + 1] == '\0')
-				break;
 			i++;
 		}
 	}
