@@ -31,12 +31,8 @@ int _printf(const char *format, ...)
 			else if (format[i + 1] == 's')
 			{
 				string = va_arg(args_list, char *);
-				while (*string != '\0')
-				{
-					write(1, string, 1);
-					string++;
-					count_n++;
-				}
+				for (; *string != '\0' && (++count_n, 1); write(1, string++, 1))
+					;
 			}
 			else if (format[i + 1] == '%')
 			{
