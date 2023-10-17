@@ -42,8 +42,6 @@ int _printf(const char *format, ...)
 				write(1, &format[i + 1], 1);
 				count_n++;
 			}
-			else if (format[i + 1] != ('%' || 'c' || 's'))
-				return (-1);
 			i++;
 		}
 	}
