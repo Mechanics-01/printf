@@ -6,28 +6,27 @@
  */
 int _printf(const char *format, ...)
 {
-	int count_n = 0;
+	int i, count_n = 0;
 	char *string, a;
 	va_list args_list;
 
 	va_start(args_list, format);
-	while (*format != '\0')
+	for (i = 0; format[i] != '\0'; i++)
 	{
-		if (*format != '%')
+		if (format[i] != '%')
 		{
-			write(1, format, 1);
+			write(1, &format[i], 1);
 			count_n++;
 		}
 		else
 		{
-			format++;
-			if (*format == 'c')
+			if (format[i + 1] == 'c')
 			{
 				a = va_arg(args_list, int);
 				write(1, &a, 1);
 				count_n++;
 			}
-			else if (*format == 's')
+			else if (format[i + 1] == 's')
 			{
 				string = va_arg(args_list, char *);
 				while (*string != '\0')
@@ -37,13 +36,13 @@ int _printf(const char *format, ...)
 					string++;
 				}
 			}
-			else if (*format == '%')
+			else if (format[i + 1] == '%')
 			{
 				write(1, "%", 1);
 				count_n++;
 			}
+			i++;
 		}
-		format++;
 	}
 	va_end(args_list);
 	return (count_n);
