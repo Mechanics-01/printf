@@ -61,16 +61,6 @@ int _printf(const char *format, ...)
 				number = va_arg(args_list, int);
 				count_n += convert_to_binary(number);
 			}
-			else if (format[i + 1] == 'u')
-			{
-				number = va_arg(args_list, int);
-				count_n += convert_to_string(number);
-			}
-			else if (format[i + 1] == 'o')
-			{
-				number = va_arg(args_list, int);
-				count_n += convert_to_octal(number);
-			}
 			i++;
 		}
 	}
