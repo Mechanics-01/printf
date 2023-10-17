@@ -30,8 +30,11 @@ int _printf(const char *format, ...)
 			{
 				string = va_arg(args_list, char *);
 				while (*string != '\0')
+				{
 					write(1, string, 1);
-				count_n = count_n + _stringlength(string);
+					string++;
+					count_n++;
+				}
 			}
 			else if (format[i + 1] == '%')
 			{
