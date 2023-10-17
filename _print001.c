@@ -23,8 +23,6 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-			if (format[i + 1] == '\0')
-				break;
 			if (format[i + 1] == 'c')
 			{
 				a = va_arg(args_list, int);
