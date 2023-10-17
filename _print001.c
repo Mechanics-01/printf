@@ -7,13 +7,14 @@
 
 int _printf(const char *format, ...)
 {
-	int i, count_n = 0, number;
-	char *string = NULL, a;
+	int i;
+	int count_n = 0, 
+	int number;
+	char *string;
+	char a;
 	va_list args_list;
 
 	if (format == NULL)
-		return (-1);
-	if (*format == '\0')
 		return (-1);
 	va_start(args_list, format);
 	for (i = 0; format[i] != '\0'; i++)
