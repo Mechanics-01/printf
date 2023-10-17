@@ -71,16 +71,6 @@ int _printf(const char *format, ...)
 				number = va_arg(args_list, int);
 				count_n += convert_to_octal(number);
 			}
-			else if (format[i + 1] == 'X')
-			{
-				number = va_arg(args_list, int);
-				count_n += convert_to_heXa(number);
-			}
-			else if (format[i + 1] == 'x')
-			{
-				number = va_arg(args_list, int);
-				count_n += convert_to_hexa(number);
-			}
 			i++;
 		}
 	}
