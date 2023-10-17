@@ -43,10 +43,7 @@ int _printf(const char *format, ...)
 				count_n++;
 			}
 			else if (format[i + 1] != ('%' || 'c' || 's'))
-			{
-				write(1, &format[i + 1], 1);
-				count_n++;
-			}
+				return (-1);
 			i++;
 		}
 	}
