@@ -19,7 +19,7 @@ int _printf(const char *format, ...)
 		return (-1);
 
 	if (*format == '\0')
-		return (0);
+		exit(STDERR_FILENO);
 
 	va_start(args_list, format);
 
