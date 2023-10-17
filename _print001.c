@@ -9,7 +9,7 @@ int _printf(const char *format, ...)
 {
 	int i;
 	int count_n = 0; 
-	int number;
+	int number, binary;
 	char *string;
 	char a;
 	va_list args_list;
@@ -51,6 +51,11 @@ int _printf(const char *format, ...)
 			{
 				number = va_arg(args_list, int);
 				count_n += convert_to_string(number);
+			}
+			else if (format[i + 1] == 'b')
+			{
+				binary = va_arg(args_list, int);
+				count_n += convert_to_binary(binary);
 			}
 			i++;
 		}

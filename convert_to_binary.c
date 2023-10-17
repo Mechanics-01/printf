@@ -1,4 +1,5 @@
 #include "main.h"
+
 /**
  * convert_to_binary - Converts an integer to binary and prints it.
  * @value_bin: The integer to be converted and printed in binary.
@@ -29,7 +30,7 @@ int convert_to_binary(int value_bin)
 	}
 
 	for (j = i - 1; j >= 0; j--)
-		_putchar(48 + box[j]);
+		_putchar('0' + box[j]);
 
 	return (count_b);
 }
