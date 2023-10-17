@@ -7,6 +7,8 @@
 int _printf(const char *format, ...);
 int _stringlength(const char *str);
 int convert_to_string(int number);
+int convert_to_binary(int value_bin);
+
 int _putchar(char c);
 
 #endif/*MAIN_H*/
