@@ -17,12 +17,12 @@ int _printf(const char *format, ...)
 
 	if (format == NULL)
 		return (-1);
-	
+
 	if (*format == '\0')
 		return (0);
-	
+
 	va_start(args_list, format);
-	
+
 	for (i = 0; format[i] != '\0'; i++)
 	{
 		if (format[i] != '%')
@@ -51,7 +51,7 @@ int _printf(const char *format, ...)
 				write(1, "%", 1);
 				count_n++;
 			}
-			else if (format[i + 1] == 'd' || format[ i + 1] == 'i')
+			else if (format[i + 1] == 'd' || format[i + 1] == 'i')
 			{
 				number = va_arg(args_list, int);
 				count_n += convert_to_string(number);
