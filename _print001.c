@@ -7,7 +7,7 @@
 
 int _printf(const char *format, ...)
 {
-	int i, count_n = 0;
+	int i, count_n = 0, number;
 	char *string = NULL, a;
 	va_list args_list;
 
@@ -43,6 +43,11 @@ int _printf(const char *format, ...)
 			{
 				write(1, "%", 1);
 				count_n++;
+			}
+			else if (format[i + 1] == 'd' || format[i + 1] == 'i')
+			{
+				number = va_arg(args_list, int);
+				count_n += convert_to_string(number);
 			}
 			i++;
 		}
