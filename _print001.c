@@ -32,7 +32,7 @@ int _printf(const char *format, ...)
 			else if (format[i + 1] == 's')
 			{
 				string = va_arg(args_list, char *);
-				for (; string != NULL; string++, count_n++)
+				for (; *string != '\0'; string++, count_n++)
 				{
 					write(1, string, 1);
 				}
