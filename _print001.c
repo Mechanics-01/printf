@@ -30,20 +30,17 @@ int _printf(const char *format, ...)
 			{
 				string = va_arg(args_list, char *);
 				while (*string != '\0')
-				{
 					write(1, string, 1);
-					count_n++;
-					string++;
-				}
+				count_n = count_n + _stringlength(string);
 			}
 			else if (format[i + 1] == '%')
 			{
-				write(1, "%", 1);
+				write(1, &format[i + 1], 1);
 				count_n++;
 			}
 			i++;
 		}
 	}
 	va_end(args_list);
-	return (count_n);
+	return (count_n - 1);
 }
