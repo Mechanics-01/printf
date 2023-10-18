@@ -12,9 +12,6 @@ int convert_to_binary(long int value_bin)
 	char box[33];
 	int count_b = 31;
 	int i = 0, j;
-
-	if (value_bin < 0)
-		value_bin = -value_bin - 1;
 	
 	if (value_bin == 0)
 		_putchar('0');
