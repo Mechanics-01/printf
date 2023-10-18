@@ -4,7 +4,7 @@
  * convert_to_heXa - Converts an integer to hexadecimal and prints it.
  * @value_bin: The integer to be converted and printed in hexadecimal.
  *
- * Return: Number of hexadecimal in digit is printed.
+ * Return: Numbers of hexadecimal in digit is printed.
  */
 
 int convert_to_heXa(int value_bin)
