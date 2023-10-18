@@ -2,7 +2,7 @@ include "main.h"
 
 /**
  * _printf - Produces output according to a format.
- * @format: A character string that contains 0.
+ * @format: The character string that contains 0.
  *
  * Return: The numbers of characters to be printed.
  */
