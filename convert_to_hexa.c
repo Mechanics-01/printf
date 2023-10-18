@@ -1,10 +1,10 @@
 #include "main.h"
 
 /**
- * convert_to_hexa - Converts an integer to hexadecimal and prints it.
- * @value_bin: The integer to be converted and printed in hexadecimal.
+ * convert_to_hexa - Convert an integer to hexadecimal and prints it.
+ * @value_bin: The integer to be converted and printed in hexadecimals.
  *
- * Return: Number of hexadecimal digits printed.
+ * Return: Number of hexadecimal to be printed.
  */
 
 int convert_to_hexa(int value_bin)
