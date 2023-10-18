@@ -5,6 +5,7 @@
 #include <unistd.h>
 #define BUFF 1024
 
+/*function names*/
 int _printf(const char *format, ...);
 int _stringlength(const char *str);
 int convert_to_string(int number);
