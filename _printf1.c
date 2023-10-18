@@ -1,9 +1,8 @@
-include "main.h"
+#include "main.h"
 
 /**
  * _printf - Produces output according to a format.
  * @format: The character string that contains 0.
- *
  * Return: The numbers of characters to be printed.
  */
 
@@ -43,14 +42,25 @@ int _printf(const char *format, ...)
 			else if (format[i + 1] == 's')
 			{
 				string = va_arg(args_list, char *);
-				for (; *string != '\0'; string++, count_n++)
+				if (string != NULL)
 				{
-					write(1, string, 1);
+					for (; *string != '\0'; string++, count_n++)
+						write(1, string, 1);
+				}
+				else
+				{
+					write(1, "(null)", 6);
+					count_n = count_n + 6;
 				}
 			}
 			else if (format[i + 1] == '%')
 			{
 				write(1, "%", 1);
+				count_n++;
+			}
+			else if (format[i + 1] == '\0')
+			{
+				return (-1);
 				count_n++;
 			}
 			else if (format[i + 1] == 'd' || format[i + 1] == 'i')
@@ -82,6 +92,12 @@ int _printf(const char *format, ...)
 			{
 				number = va_arg(args_list, int);
 				count_n += convert_to_heXa(number);
+			}
+			else
+			{
+				write(1, "%", 1);
+				write(1, &format[i + 1], 1);
+				count_n++;
 			}
 			i++;
 		}
