@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * convert_to_octal - Converts an integer to octal and prints it.
+ * convert_to_octal - Converts an integer to octal and prints in digit.
  * @value_o: The integer to be converted and printed in octal.
  *
  * Return: Number of octal in digit is printed.
