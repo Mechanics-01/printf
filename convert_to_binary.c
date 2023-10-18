@@ -39,5 +39,5 @@ int convert_to_binary(long int value_bin)
 		for (j = i - 1; j >= 0; j--)
 			_putchar(48 + box[j]);
 	}
-	return (count_b - 1);
+	return (count_b);
 }
