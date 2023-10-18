@@ -2,7 +2,7 @@
 
 /**
  * convert_to_hexa - Convert an integer to hexadecimal and prints it.
- * @value_bin: The integer to be converted and printed in hexadecimals.
+ * @value_bin: The integers to be converted and printed in hexadecimals.
  *
  * Return: Numbers of hexadecimal to be printed.
  */
