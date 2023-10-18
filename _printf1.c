@@ -60,8 +60,7 @@ int _printf(const char *format, ...)
 			}
 			else if (format[i + 1] == '\0')
 			{
-				return (0);
-				count_n++;
+				return (count_n);
 			}
 			else if (format[i + 1] == 'd' || format[i + 1] == 'i')
 			{
