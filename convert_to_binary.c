@@ -4,7 +4,7 @@
  * convert_to_binary - Converts an integer to binary and prints it.
  * @value_bin: The integers to be converted and printed in binary.
  *
- * Return: Numbers of binary digits printed.
+ * Return: Numbers of binary digits are printed.
  */
 
 int convert_to_binary(int value_bin)
