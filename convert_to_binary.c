@@ -16,6 +16,11 @@ int convert_to_binary(long int value_bin)
 	if (value_bin == 0)
 		_putchar('0');
 
+	if (value_bin < 0)
+	{
+		value_bin = -value_bin - 1;
+	}
+
 	while (value_bin > 0)
 	{
 		box[i++] = value_bin % 2;
@@ -25,7 +30,6 @@ int convert_to_binary(long int value_bin)
 	
 	for (j = i - 1; j >= 0; j--)
 		_putchar(48 + box[j]);
-
 	
 	return (count_b);
 }
