@@ -9,7 +9,7 @@
 
 int convert_to_binary(long int value_bin)
 {
-	char box[33];
+	char box[32];
 	int count_b = 0;
 	int i = 0, j;
 	
@@ -18,12 +18,11 @@ int convert_to_binary(long int value_bin)
 
 	if (value_bin < 0)
 	{
-		value_bin = -value_bin - 1;
+		value_bin = UINT_MAX + value_bin + 1;
 	}
-
-	while (value_bin > 0)
+	for (i = 0; i < 32; i++)
 	{
-		box[i++] = value_bin % 2;
+		box[i] = value_bin % 2;
 		value_bin = value_bin / 2;
 		count_b++;
 	}
@@ -31,5 +30,5 @@ int convert_to_binary(long int value_bin)
 	for (j = i - 1; j >= 0; j--)
 		_putchar(48 + box[j]);
 	
-	return (count_b);
+	return (count_b - 1);
 }

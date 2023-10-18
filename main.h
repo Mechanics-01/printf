@@ -3,7 +3,10 @@
 
 #include <stdarg.h>
 #include <unistd.h>
+#include <string.h>
+#include <limits.h>
 #define BUFF 1024
+
 
 /*function names used*/
 int _printf(const char *format, ...);
