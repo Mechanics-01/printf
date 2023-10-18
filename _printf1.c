@@ -12,8 +12,6 @@ int _printf(const char *format, ...)
 	int number;
 	char a;
 	char *string;
-	char buff_holder[BUFF];
-	int buff_i = 0;
 
 	va_list args_list;
 
@@ -78,10 +76,10 @@ int _printf(const char *format, ...)
 				number = va_arg(args_list, int);
 				count_n += convert_to_hexa(number);
 			}
-			else if (format[i + 1] == 'X')
+			else if (format[i + 1] == 'x')
 			{
 				number = va_arg(args_list, int);
-				count_n += convert_to_heXa(number);
+				count_n += convert_to_hexa(number);
 			}
 			i++;
 		}
