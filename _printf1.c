@@ -60,7 +60,7 @@ int _printf(const char *format, ...)
 			}
 			else if (format[i + 1] == '\0')
 			{
-				return (-1);
+				return (0);
 				count_n++;
 			}
 			else if (format[i + 1] == 'd' || format[i + 1] == 'i')
@@ -97,7 +97,7 @@ int _printf(const char *format, ...)
 			{
 				write(1, "%", 1);
 				write(1, &format[i + 1], 1);
-				count_n++;
+				count_n = count_n + 2;
 			}
 			i++;
 		}
