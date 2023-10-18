@@ -1,9 +1,10 @@
 #include "main.h"
 
 /**
- * convert_to_string - Converts an integer to a string
+ * convert_to_string - It convert an integer to strings.
  * and prints it.
- * @number: The integer to be converted and printed.
+ * @number: The integer to converted and printed.
+ *
  * Return: Number of characters printed.
  */
 
@@ -11,7 +12,8 @@ int convert_to_string(int number)
 {
 	char box[40];
 	int count_p = 0;
-	int i = 0, j = 0;
+	int i = 0;
+	int j = 0;
 
 	if (number < 0)
 	{

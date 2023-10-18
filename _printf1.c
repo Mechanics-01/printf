@@ -1,8 +1,10 @@
-#include "main.h"
+include "main.h"
+
 /**
- * _printf - Produces output according to a format
+ * _printf - Produces output according to a format.
  * @format: A character string containing zero
- * Return: The number of characters printed
+ *
+ * Return: The numbers of characters printed.
  */
 
 int _printf(const char *format, ...)
