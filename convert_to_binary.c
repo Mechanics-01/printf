@@ -7,9 +7,9 @@
  * Return: Numbers of binary digits are printed.
  */
 
-int convert_to_binary(int value_bin)
+int convert_to_binary(long int value_bin)
 {
-	int box[50];
+	int box[200];
 	int count_b = 0;
 	int i = 0;
 	int j = 0;
@@ -20,7 +20,12 @@ int convert_to_binary(int value_bin)
 		count_b++;
 		return (count_b);
 	}
-
+	if (value_bin < 0)
+	{
+		_putchar('-');
+		count_b++;
+		value_bin = -value_bin;
+	}
 	while (value_bin > 0)
 	{
 		box[i] = value_bin % 2;
