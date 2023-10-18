@@ -5,7 +5,7 @@
  * and prints it.
  * @number: The integer to converted and printed.
  *
- * Return: Number of characters printed.
+ * Return: Numbers of characters printed.
  */
 
 int convert_to_string(int number)
