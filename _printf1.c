@@ -12,6 +12,8 @@ int _printf(const char *format, ...)
 	int number;
 	char a;
 	char *string;
+	char buff_holder[BUFF];
+	int buff_i = 0;
 
 	va_list args_list;
 
@@ -27,7 +29,7 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] != '%')
 		{
-			write(1, &format[i], 1);
+			buff_holder[buff_i++] = format[i];
 			count_n++;
 		}
 		else
@@ -35,7 +37,7 @@ int _printf(const char *format, ...)
 			if (format[i + 1] == 'c')
 			{
 				a = va_arg(args_list, int);
-				write(1, &a, 1);
+				buff_holder[buff_i++] = a;
 				count_n++;
 			}
 			else if (format[i + 1] == 's')
@@ -43,12 +45,12 @@ int _printf(const char *format, ...)
 				string = va_arg(args_list, char *);
 				for (; *string != '\0'; string++, count_n++)
 				{
-					write(1, string, 1);
+					buff_holder[buff_i++] = *string;;
 				}
 			}
 			else if (format[i + 1] == '%')
 			{
-				write(1, "%", 1);
+				buff_holder[buff_i++] = '%';
 				count_n++;
 			}
 			else if (format[i + 1] == 'd' || format[i + 1] == 'i')

@@ -3,6 +3,7 @@
 
 #include <stdarg.h>
 #include <unistd.h>
+#define BUFF 1024
 
 int _printf(const char *format, ...);
 int _stringlength(const char *str);
