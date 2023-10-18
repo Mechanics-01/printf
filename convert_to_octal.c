@@ -4,7 +4,7 @@
  * convert_to_octal - Converts an integer to octal and prints it.
  * @value_o: The integer to be converted and printed in octal.
  *
- * Return: Number of octal digits printed.
+ * Return: Number of octal in digit is printed.
  */
 
 int convert_to_octal(int value_o)
