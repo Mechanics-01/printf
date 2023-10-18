@@ -20,11 +20,12 @@ int convert_to_binary(long int value_bin)
 		box[i] = value_bin % 2;
 		value_bin = value_bin / 2;
 		i++;
-		count_b++;
 	}
 	for (j = i - 1; j >= 0; j--)
+	{
 		_putchar(48 + box[j]);
-
+		count_b++;
+	}
 	if (value_bin < 0)
 	{
 		value_bin = UINT_MAX + value_bin + 1;
@@ -38,5 +39,5 @@ int convert_to_binary(long int value_bin)
 		for (j = i - 1; j >= 0; j--)
 			_putchar(48 + box[j]);
 	}
-	return (count_b);
+	return (count_b - 1);
 }
