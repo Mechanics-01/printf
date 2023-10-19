@@ -96,21 +96,21 @@ int _printf(const char *format, ...)
 			else if (format[i + 1] == 'S')
 			{
 				string = va_arg(args_list, char *);
-				if ((*string < 32) || (*string >= 127))
+				for (; *string != '\0'; string++, count_n++)
 				{
-					box[0] = ((*string / 16) % 16) + '0';
-                    box[0] += (box[0] > '9') ? 7 : 0; 
-                    box[1] = (*string % 16) + '0';
-                    box[1] += (box[1] > '9') ? 7 : 0;
-                    write(1, "\\x", 2);
-                    write(1, box, 2);
-					count_n += 3;
-				}
-				else if (string != NULL)
-				{
-					for (; *string != '\0'; string++, count_n++)
+					if ((*string < 32) || (*string >= 127))
+					{
+						
+						box[0] = ((*string / 16) % 16) + '0';
+						box[0] += (box[0] > '9') ? 7 : 0; 
+						box[1] = (*string % 16) + '0';
+						box[1] += (box[1] > '9') ? 7 : 0;
+						write(1, "\\x", 2);
+						write(1, box, 2);
+						count_n += 2;
+					}
+					else
 						write(1, string, 1);
-					count_n -= 1;
 				}
 			}
 			else
