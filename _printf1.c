@@ -8,7 +8,7 @@
 
 int _printf(const char *format, ...)
 {
-	int i;
+	int i, k;
 	int count_n = 0;
 	int number;
 	unsigned int number1;
@@ -111,6 +111,15 @@ int _printf(const char *format, ...)
 					}
 					else
 						write(1, string, 1);
+				}
+			}
+			else if (format[i + 1] == 'r')
+			{
+				string = va_arg(args_list, char *);
+				for (k = strlen(string) - k; k >= 0; k--)
+				{
+					_putchar(string[k]);
+					count_n++;
 				}
 			}
 			else
