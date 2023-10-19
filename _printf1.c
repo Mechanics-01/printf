@@ -107,18 +107,17 @@ int _printf(const char *format, ...)
 				number1 = va_arg(args_list, int);
 				if (flag_h && number1)
 				{
-					_putchar('O');
-					_putchar('o');
-					count_n += 2;
+					_putchar('0');
+					count_n ++;
 				}
 				count_n += convert_to_octal(number1);
 			}
 			else if (format[i + 1] == 'x')
 			{
 				number = va_arg(args_list, int);
-				if (flag_h && number >= 0)
+				if (flag_h && number )
 				{
-					_putchar('O');
+					_putchar('0');
 					_putchar('x');
 					count_n += 2;
 				}
@@ -127,9 +126,9 @@ int _printf(const char *format, ...)
 			else if (format[i + 1] == 'X')
 			{
 				number = va_arg(args_list, int);
-				if (flag_h && number >= 0)
+				if (flag_h && number)
 				{
-					_putchar('O');
+					_putchar('0');
 					_putchar('X');
 					count_n += 2;
 				}
