@@ -16,6 +16,7 @@ int _printf(const char *format, ...)
 	char *string;
 	int flag_p = 0;
     int flag_s = 0;
+	int flag_h = 0;
 
 	va_list args_list;
 
@@ -42,6 +43,8 @@ int _printf(const char *format, ...)
 					flag_p = 1;
 				else if (format[i + 1] == ' ')
 					flag_s = 1;
+				else if (format[i + 1] == '#')
+					flag_h = 1;
 				i++;
 			}
             
@@ -102,16 +105,34 @@ int _printf(const char *format, ...)
 			else if (format[i + 1] == 'o')
 			{
 				number1 = va_arg(args_list, int);
+				if (flag_h && number1)
+				{
+					_putchar('O');
+					_putchar('o');
+					count_n += 2;
+				}
 				count_n += convert_to_octal(number1);
 			}
 			else if (format[i + 1] == 'x')
 			{
 				number = va_arg(args_list, int);
+				if (flag_h && number >= 0)
+				{
+					_putchar('O');
+					_putchar('x');
+					count_n += 2;
+				}
 				count_n += convert_to_hexa(number);
 			}
 			else if (format[i + 1] == 'X')
 			{
 				number = va_arg(args_list, int);
+				if (flag_h && number >= 0)
+				{
+					_putchar('O');
+					_putchar('X');
+					count_n += 2;
+				}
 				count_n += convert_to_heXa(number);
 			}
 			else if (format[i + 1] == 'S')
