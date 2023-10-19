@@ -93,6 +93,20 @@ int _printf(const char *format, ...)
 				number = va_arg(args_list, int);
 				count_n += convert_to_heXa(number);
 			}
+			else if (format[i + 1] == 'S')
+			{
+				string = va_arg(args_list, char *);
+				if ((*string < 32) || (*string >= 127))
+				{
+					write(1, "\\x", 2);
+					count_n += 2;
+				}
+				else if (string != NULL)
+				{
+					for (; *string != '\0'; string++, count_n++)
+						write(1, string, 1);
+				}
+			}
 			else
 			{
 				write(1, "%", 1);
