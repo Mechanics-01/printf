@@ -104,11 +104,13 @@ int _printf(const char *format, ...)
                     box[1] += (box[1] > '9') ? 7 : 0;
                     write(1, "\\x", 2);
                     write(1, box, 2);
+					count_n += 3;
 				}
 				else if (string != NULL)
 				{
 					for (; *string != '\0'; string++, count_n++)
 						write(1, string, 1);
+					count_n -= 1;
 				}
 			}
 			else
