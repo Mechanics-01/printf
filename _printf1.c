@@ -11,6 +11,7 @@ int _printf(const char *format, ...)
 	int i;
 	int count_n = 0;
 	int number;
+	unsigned int number1;
 	char a;
 	char *string;
 
@@ -74,13 +75,13 @@ int _printf(const char *format, ...)
 			}
 			else if (format[i + 1] == 'u')
 			{
-				number = va_arg(args_list, int);
-				count_n += convert_to_string(number);
+				number1 = va_arg(args_list, int);
+				count_n += convert_to_string(number1);
 			}
 			else if (format[i + 1] == 'o')
 			{
-				number = va_arg(args_list, int);
-				count_n += convert_to_octal(number);
+				number1 = va_arg(args_list, int);
+				count_n += convert_to_octal(number1);
 			}
 			else if (format[i + 1] == 'x')
 			{
