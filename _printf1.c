@@ -14,6 +14,8 @@ int _printf(const char *format, ...)
 	unsigned int number1;
 	char a, box[3] = {0};
 	char *string;
+	int flag_p = 0;
+    int flag_s = 0;
 
 	va_list args_list;
 
@@ -34,6 +36,15 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
+			while (format[i + 1] == '+' || format[i + 1] == ' ' || format[i + 1] == '#')
+			{
+				if (format[i + 1] == '+')
+					flag_p = 1;
+				else if (format[i + 1] == ' ')
+					flag_s = 1;
+				i++;
+			}
+            
 			if (format[i + 1] == 'c')
 			{
 				a = va_arg(args_list, int);
@@ -66,6 +77,16 @@ int _printf(const char *format, ...)
 			else if (format[i + 1] == 'd' || format[i + 1] == 'i')
 			{
 				number = va_arg(args_list, int);
+				if (flag_p && number >= 0)
+				{
+					_putchar('+');
+					count_n++;
+				}
+				else if (flag_s && number >= 0)
+				{
+					_putchar(' ');
+					count_n++;	
+				}
 				count_n += convert_to_string(number);
 			}
 			else if (format[i + 1] == 'b')
