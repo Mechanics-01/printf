@@ -12,7 +12,7 @@ int _printf(const char *format, ...)
 	int count_n = 0;
 	int number;
 	unsigned int number1;
-	char a;
+	char a, box[3] = {0};
 	char *string;
 
 	va_list args_list;
@@ -98,8 +98,12 @@ int _printf(const char *format, ...)
 				string = va_arg(args_list, char *);
 				if ((*string < 32) || (*string >= 127))
 				{
-					write(1, "\\x", 2);
-					count_n += 2;
+					box[0] = ((*string / 16) % 16) + '0';
+                    box[0] += (box[0] > '9') ? 7 : 0; 
+                    box[1] = (*string % 16) + '0';
+                    box[1] += (box[1] > '9') ? 7 : 0;
+                    write(1, "\\x", 2);
+                    write(1, box, 2);
 				}
 				else if (string != NULL)
 				{
