@@ -121,7 +121,7 @@ int _printf(const char *format, ...)
 					_putchar(string[k]);
 					count_n++;
 				}
-				count_n -= 1;
+				count_n--;
 			}
 			else
 			{
