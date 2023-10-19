@@ -13,6 +13,8 @@ int convert_to_octal(int value_o)
 	int count_b = 0;
 	int i = 0;
 	int j = 0;
+	unsigned int number;
+
 
 	if (value_o == 0)
 	{
@@ -20,11 +22,6 @@ int convert_to_octal(int value_o)
 		count_b++;
 		return (count_b);
 	}
-	if (value_o < 0)
-	{
-		value_o = ~value_o + 1;
-	}
-
 	while (value_o > 0)
 	{
 		box[i] = value_o % 8;
@@ -32,9 +29,24 @@ int convert_to_octal(int value_o)
 		i++;
 		count_b++;
 	}
+		
+		for (j = i - 1; j >= 0; j--)
+			_putchar('0' + box[j]);
+	if (value_o < 0)
+	{
+		number = 4294967296 + value_o;
 
-	for (j = i - 1; j >= 0; j--)
-		_putchar('0' + box[j]);
+		while (number > 0)
+		{
+			box[i] = number % 8;
+			number = number / 8;
+			i++;
+			count_b++;
+		}
+
+		for (j = i - 1; j >= 0; j--)
+			_putchar('0' + box[j]);
+	}
 
 	return (count_b);
 }
