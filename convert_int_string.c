@@ -3,7 +3,7 @@
 /**
  * convert_to_string - It convert an integer to strings.
  * and prints it.
- * @number: The integer to converted and printed.
+ * @number: The integers are converted and printed.
  *
  * Return: Numbers of characters printed.
  */
