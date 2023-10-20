@@ -134,14 +134,13 @@ int format_specifier(va_list args_list, char format, int flag_h, int flag_p, int
 				char_point = (uintptr_t)point;
 				_putchar('0');
 				_putchar('x');
-				count_n += convert_to_hexa(char_point);
+				count_n = count_n + convert_to_hexa(char_point) + 1; 
 		}
 		else
 		{
 				write(1, "(nil)", 5);
 				count_n = count_n + 3;
 		}
-		count_n++;
 	}
 	else
 	{
