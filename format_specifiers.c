@@ -132,6 +132,8 @@ int format_specifier(va_list args_list, char format, int flag_h, int flag_p, int
 		if (point != NULL)
 		{
 				char_point = (uintptr_t)point;
+				_putchar('0');
+				_putchar('x');
 				count_n += convert_to_hexa(char_point);
 		}
 		else
