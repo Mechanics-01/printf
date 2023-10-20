@@ -3,8 +3,9 @@
 
 #include <stdarg.h>
 #include <unistd.h>
-#include <string.h>
 #include <limits.h>
+#include <string.h>
+#include <stdio.h>
 #define BUFF 1024
 
 
@@ -17,6 +18,6 @@ int convert_to_heXa(int value_bin);
 int convert_to_hexa(int value_bin);
 int convert_to_octal(int value_o);
 int _putchar(char c);
-int format_specifier(va_list args_list, char format);
+int format_specifier(va_list args_list, char format, int a, int b, int c);
 
 #endif/*MAIN_H*/

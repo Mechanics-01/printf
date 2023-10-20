@@ -8,24 +8,16 @@
 
 int _printf(const char *format, ...)
 {
-	int i, k;
-	int count_n = 0;
-	int number;
-	unsigned int number1;
-	char a, box[3] = {0};
-	char *string;
-	int flag_p = 0;
-    int flag_s = 0;
-	int flag_h = 0;
+	int i;
+	int count_n = 0, flag_p = 0, flag_s = 0, flag_h = 0;
+	char init;
 
 	va_list args_list;
 
 	if (format == NULL)
 		return (-1);
-
 	if (*format == '\0')
 		return (-1);
-
 	va_start(args_list, format);
 
 	for (i = 0; format[i] != '\0'; i++)
@@ -47,129 +39,8 @@ int _printf(const char *format, ...)
 					flag_h = 1;
 				i++;
 			}
-            
-			if (format[i + 1] == 'c')
-			{
-				a = va_arg(args_list, int);
-				write(1, &a, 1);
-				count_n++;
-			}
-			else if (format[i + 1] == 's')
-			{
-				string = va_arg(args_list, char *);
-				if (string != NULL)
-				{
-					for (; *string != '\0'; string++, count_n++)
-						write(1, string, 1);
-				}
-				else
-				{
-					write(1, "(null)", 6);
-					count_n = count_n + 6;
-				}
-			}
-			else if (format[i + 1] == '%')
-			{
-				write(1, "%", 1);
-				count_n++;
-			}
-			else if (format[i + 1] == '\0')
-			{
-				return (count_n);
-			}
-			else if (format[i + 1] == 'd' || format[i + 1] == 'i')
-			{
-				number = va_arg(args_list, int);
-				if (flag_p && number >= 0)
-				{
-					_putchar('+');
-					count_n++;
-				}
-				else if (flag_s && number >= 0)
-				{
-					_putchar(' ');
-					count_n++;	
-				}
-				count_n += convert_to_string(number);
-			}
-			else if (format[i + 1] == 'b')
-			{
-				number = va_arg(args_list, int);
-				count_n += convert_to_binary(number);
-			}
-			else if (format[i + 1] == 'u')
-			{
-				number1 = va_arg(args_list, int);
-				count_n += convert_to_string(number1);
-			}
-			else if (format[i + 1] == 'o')
-			{
-				number1 = va_arg(args_list, int);
-				if (flag_h && number1)
-				{
-					_putchar('0');
-					count_n ++;
-				}
-				count_n += convert_to_octal(number1);
-			}
-			else if (format[i + 1] == 'x')
-			{
-				number = va_arg(args_list, int);
-				if (flag_h && number )
-				{
-					_putchar('0');
-					_putchar('x');
-					count_n += 2;
-				}
-				count_n += convert_to_hexa(number);
-			}
-			else if (format[i + 1] == 'X')
-			{
-				number = va_arg(args_list, int);
-				if (flag_h && number)
-				{
-					_putchar('0');
-					_putchar('X');
-					count_n += 2;
-				}
-				count_n += convert_to_heXa(number);
-			}
-			else if (format[i + 1] == 'S')
-			{
-				string = va_arg(args_list, char *);
-				for (; *string != '\0'; string++, count_n++)
-				{
-					if ((*string < 32) || (*string >= 127))
-					{
-						
-						box[0] = ((*string / 16) % 16) + '0';
-						box[0] += (box[0] > '9') ? 7 : 0; 
-						box[1] = (*string % 16) + '0';
-						box[1] += (box[1] > '9') ? 7 : 0;
-						write(1, "\\x", 2);
-						write(1, box, 2);
-						count_n += 3;
-					}
-					else
-						write(1, string, 1);
-				}
-			}
-			else if (format[i + 1] == 'r')
-			{
-				string = va_arg(args_list, char *);
-				for (k = strlen(string) - k; k >= 0; k--)
-				{
-					_putchar(string[k]);
-					count_n++;
-				}
-				count_n--;
-			}
-			else
-			{
-				write(1, "%", 1);
-				write(1, &format[i + 1], 1);
-				count_n = count_n + 2;
-			}
+			init = format[i + 1];
+			count_n += format_specifier(args_list, init, flag_h, flag_p, flag_s);
 			i++;
 		}
 	}
