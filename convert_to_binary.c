@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * convert_to_binary - Converts an integer to binary and prints it.
+ * convert_to_binary - Converts an integer to binary and prints in digit.
  * @value_bin: The integers to be converted and printed in binary.
  *
  * Return: Numbers of binary digits are printed.
