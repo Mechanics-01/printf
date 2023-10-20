@@ -13,6 +13,7 @@ int convert_to_hexa(int value_bin)
 	int count_b = 0;
 	int divided;
 	char digits;
+	unsigned int number;
 	int i = 0;
 	int j = 0;
 
@@ -40,6 +41,29 @@ int convert_to_hexa(int value_bin)
 
 	for (j = i - 1; j >= 0; j--)
 		_putchar(box[j]);
+
+	if (value_bin < 0)
+	{
+		number = 4294967296 + value_bin;
+
+		while (number > 0)
+		{
+			divided = number % 16;
+			if (divided < 10)
+				digits = divided + '0';
+			else
+				digits = (divided - 10) + 'a';
+
+			box[i] = digits;
+
+			number = number / 16;
+			i++;
+			count_b++;
+		}
+
+	for (j = i - 1; j >= 0; j--)
+		_putchar(box[j]);
+	}
 
 	return (count_b);
 }

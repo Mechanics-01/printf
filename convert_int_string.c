@@ -8,12 +8,18 @@
  * Return: Numbers of characters printed.
  */
 
-int convert_to_string(int number)
+int convert_to_string(long int number)
 {
-	char box[40];
+	char box[100];
 	int count_p = 0;
 	int i = 0;
 	int j = 0;
+
+	if (number == 0)
+	{
+		_putchar(48);
+		count_p++;
+	}
 
 	if (number < 0)
 	{
@@ -21,7 +27,6 @@ int convert_to_string(int number)
 		count_p++;
 		number = -number;
 	}
-
 	while (number > 0)
 	{
 		box[i] = (number % 10) + '0';
