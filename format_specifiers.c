@@ -7,6 +7,8 @@ int format_specifier(va_list args_list, char format, int flag_h, int flag_p, int
 	unsigned int number1;
 	char a, box[3] = {0};
 	char *string;
+	void *point;
+	long int char_point;
 
 	if (format == 'c')
 	{
@@ -123,6 +125,20 @@ int format_specifier(va_list args_list, char format, int flag_h, int flag_p, int
 			count_n++;
 		}
 		count_n--;
+	}
+	else if (format == 'p')
+	{
+		point = va_arg(args_list, void *);
+		if (point != NULL)
+		{
+			char_point = (uintptr_t)point;
+			count_n += convert_to_hexa(char_point);
+		}
+		else
+		{
+			write(1, "(nil)", 5);
+			count_n = count_n + 5;
+		}
 	}
 	else
 	{

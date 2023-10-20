@@ -7,7 +7,7 @@
  * Return: Numbers of hexadecimals are printed.
  */
 
-int convert_to_hexa(int value_bin)
+int convert_to_hexa(long int value_bin)
 {
 	int box[100];
 	int count_b = 0;
