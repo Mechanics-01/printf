@@ -149,7 +149,7 @@ int format_specifier(va_list args_list, char format, int flag_h, int flag_p, int
 		else
 		{
 			write(1, "(nil)", 5);
-			count_n = count_n + 3;
+			count_n = count_n + 5;
 		}
 	}
 	else
