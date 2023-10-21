@@ -144,7 +144,7 @@ int format_specifier(va_list args_list, char format, int flag_h, int flag_p, int
 			char_point = (long int)point;
 			_putchar('0');
 			_putchar('x');
-			count_n = count_n + convert_to_hexa(char_point) + 2;
+			count_n = count_n + convert_to_hexa(char_point) + 1;
 		}
 		else
 		{
