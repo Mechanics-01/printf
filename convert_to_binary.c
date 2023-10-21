@@ -13,7 +13,10 @@ int convert_to_binary(long int value_bin)
 	int i = 0, j;
 
 	if (value_bin == 0)
-		_putchar('0');
+	{
+			_putchar('0');
+			count_b++;
+	}
 
 	while (value_bin > 0)
 	{
