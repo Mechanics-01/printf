@@ -1,5 +1,15 @@
 #include "main.h"
 
+/**
+ * format_specifier - Handles format specifiers for custom printf function.
+ * @args_list: List of arguments to process.
+ * @format: Format specifier character.
+ * @flag_h: Flag for hash (#) modifier.
+ * @flag_p: Flag for plus (+) modifier.
+ * @flag_s: Flag for space ( ) modifier.
+ * Return: Number of characters printed (excluding null byte).
+ */
+
 int format_specifier(va_list args_list, char format, int flag_h, int flag_p, int flag_s)
 {
 	int number, k;
@@ -8,7 +18,7 @@ int format_specifier(va_list args_list, char format, int flag_h, int flag_p, int
 	char a, box[3] = {0};
 	char *string;
 	void *point;
-	long int char_point;
+	uintptr_t char_point;
 
 	if (format == 'c')
 	{
@@ -131,15 +141,16 @@ int format_specifier(va_list args_list, char format, int flag_h, int flag_p, int
 		point = va_arg(args_list, void *);
 		if (point != NULL)
 		{
-				char_point = (uintptr_t)point;
-				_putchar('0');
-				_putchar('x');
-				count_n = count_n + convert_to_hexa(char_point) + 1; 
+			char_point = (uintptr_t)point;
+			printf("%ld\n", char_point);
+			_putchar('0');
+			_putchar('x');
+			count_n = count_n + convert_to_hexa(char_point) + 1; 
 		}
 		else
 		{
-				write(1, "(nil)", 5);
-				count_n = count_n + 3;
+			write(1, "(nil)", 5);
+			count_n = count_n + 3;
 		}
 	}
 	else

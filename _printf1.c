@@ -9,7 +9,7 @@
 int _printf(const char *format, ...)
 {
 	int i;
-	int count_n = 0, flag_p = 0, flag_s = 0, flag_h = 0;
+	int count_n = 0, flag_p = 0, flag_s = 0, flag_h;
 	char init;
 
 	va_list args_list;
