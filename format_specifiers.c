@@ -142,10 +142,9 @@ int format_specifier(va_list args_list, char format, int flag_h, int flag_p, int
 		if (point != NULL)
 		{
 			char_point = (uintptr_t)point;
-			printf("%ld\n", char_point);
 			_putchar('0');
 			_putchar('x');
-			count_n = count_n + convert_to_hexa(char_point) + 1; 
+			count_n = count_n + convert_to_hexa(char_point) + 1;
 		}
 		else
 		{
