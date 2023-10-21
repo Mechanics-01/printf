@@ -18,7 +18,7 @@ int format_specifier(va_list args_list, char format, int flag_h, int flag_p, int
 	char a, box[3] = {0};
 	char *string;
 	void *point;
-	uintptr_t char_point;
+	long unsigned int char_point;
 
 	if (format == 'c')
 	{
@@ -141,7 +141,7 @@ int format_specifier(va_list args_list, char format, int flag_h, int flag_p, int
 		point = va_arg(args_list, void *);
 		if (point != NULL)
 		{
-			char_point = (uintptr_t)point;
+			char_point = (long int)point;
 			_putchar('0');
 			_putchar('x');
 			count_n = count_n + convert_to_hexa(char_point) + 1;
