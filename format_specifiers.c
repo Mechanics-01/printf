@@ -134,7 +134,6 @@ int format_specifier(va_list args_list, char format, int flag_h, int flag_p, int
 			_putchar(string[k]);
 			count_n++;
 		}
-		count_n--;
 	}
 	else if (format == 'p')
 	{
